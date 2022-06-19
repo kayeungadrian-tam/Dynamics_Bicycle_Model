@@ -5,6 +5,8 @@ A 3D simulation in python for dynamics bicycle model.
 
 ## TODOs
 
+If built with `docker-compose up --build`, ursina doesnt work.
+
 ## Setup
 
 ## Run
