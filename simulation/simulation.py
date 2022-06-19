@@ -4,15 +4,11 @@ from dynamic_bicycle_model import *
 
 from ursina.prefabs.video_recorder import VideoRecorder
 
-import os
+import sys
 import zmq
 import struct
 
-print("Connecting to server…")
-context = zmq.Context()
-socket = context.socket(zmq.REQ)
-# socket.connect("tcp://0.0.0.0:5555")
-socket.connect(os.environ["server_address"])
+
 
 
 def write_csv():
@@ -185,7 +181,15 @@ def input(key):
         print('log data saved.')
         app.quit
 if __name__ == '__main__':
-  
+    print("Connecting to server…")
+    context = zmq.Context()
+    socket = context.socket(zmq.REQ)
+
+    if sys.argv[1]  == '--local':
+        socket.connect("tcp://localhost:5555")
+    else:
+        socket.connect(os.environ["server_address"])
+
     camera.orthographic = False
     camera.fov = 80
     camera.parent = car
