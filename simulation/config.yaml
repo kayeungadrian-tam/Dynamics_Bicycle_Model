@@ -1,0 +1,33 @@
+dt: 0.01      # [s]
+
+l: 2.67       # [m]
+lf: 1.1       # [m]
+Cf: 5500.0    # [N/rad]
+Cr: 6000.0    # [N/rad]
+Iz: 2500.0    # [kg/m2]
+m: 1550.0     # [kg]
+v: 50
+
+tp: 1
+
+g: 9.81        # [m/s**2]
+
+yaw: 0.0      # [rad]
+
+x_init: 0.0   # [m]
+y_init: 10.0  # [m]
+
+radius: 150   # [m]
+
+straight_len: 50 #  [m]
+
+ratio: 17     # steer-tire ratio
+
+PID_only: False
+
+make_model: False
+
+apply_nn: True
+
+integrated: False
+v_list: [50, 60, 70, 80]

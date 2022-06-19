@@ -1,0 +1,39 @@
+version: "3"
+services:
+  server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "5550:5555"
+    volumes:
+      - ./:/app
+    command:
+      - "server/server.py"
+    tty: true
+
+  simulation:
+    build:
+      context: ./
+      dockerfile: Dockerfile.simulation
+    environment:
+      - server_address=tcp://server:5555
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./:/app
+    command:
+      - "simulation/simulation.py"
+    tty: true
+
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8050:8050"
+    volumes:
+      - ./:/app
+    command:
+      - "web/web.py"
+    tty: true
